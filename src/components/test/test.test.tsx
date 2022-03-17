@@ -4,5 +4,6 @@ import { Test } from ".";
 test("sum", () => {
   const { getByText } = render(<Test />);
 
-  expect(getByText("Test")).toBeTruthy();
+  // expect(getByText("Test")).toBeInTheDocument();
+  expect(getByText("Test")).toHaveAttribute("class", "test");
 });
