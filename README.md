@@ -1,20 +1,23 @@
-yarn create react-app . --template typescript
-yarn add jest ts-node -D
+https://github.com/MestreALMO/jest-test1
 
-yarn jest --init
-√ Would you like to use Jest when running "test" script in "package.json"? ... yes
+Continuation...
 
-√ Would you like to use Typescript for the configuration file? ... yes
+jest does not understand react by default, we need to install components that will allow it
 
-√ Choose the test environment that will be used for testing » jsdom (browser-like)
+yarn add @swc/core @swc/jest -D
 
-√ Do you want Jest to add coverage reports? ... no
+swc is a tool that makes code translation, as babel does
 
-√ Which provider should be used to instrument code for coverage? » v8
+we need to say how jest will interpret react.
 
-√ Automatically clear mock calls, instances and results before every test? ... yes
+in jest.config.ts uncomment the line: transform: undefined,
 
-yarn add @types/jest -D
+substitute value of undefined
 
-create file to test => test.test.tsx
-yarn test
+install librarys :
+
+yarn add @testing-library/react @testing-library/jest-dom @testing-library/user-event -D
+
+now we can import react components inside tests
+
+in package.json, scripts, test will be: "jest --watchAll"
