@@ -11,16 +11,16 @@ describe("Test2", () => {
     expect(getByText("Mayk")).toBeInTheDocument();
   });
 
-  it("should be able to add new item to list", () => {
-    const { getByText, debug } = render(<Test2 />);
+  it("should be able to add new item to list", async () => {
+    const { getByText, getByPlaceholderText, findByText } = render(<Test2 />);
 
+    const inputElement = getByPlaceholderText("Novo item");
     const addButton = getByText("Adicionar");
 
-    debug();
-
+    userEvent.type(inputElement, "Novo");
     userEvent.click(addButton);
 
-    debug();
+    expect(await findByText("Novo")).toBeInTheDocument();
 
     expect(getByText("Novo")).toBeInTheDocument();
   });
