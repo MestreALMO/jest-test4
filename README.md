@@ -1,23 +1,15 @@
-https://github.com/MestreALMO/jest-test1
+https://github.com/MestreALMO/jest-test2
 
 Continuation...
 
-jest does not understand react by default, we need to install components that will allow it
+create /src/test/setup.ts
 
-yarn add @swc/core @swc/jest -D
+in jest.config.js uncomment setupFilesAfterEnv and add setup.ts to it, so we can have access to more options of test
 
-swc is a tool that makes code translation, as babel does
+this way we can use actions like toBeInTheDocument instead of being limited to toBeTruthy
 
-we need to say how jest will interpret react.
+elements that start with getBy search for only one element, getAll finds all elements
 
-in jest.config.ts uncomment the line: transform: undefined,
+the elements that start with query instead of getBy don't fail if element is not found
 
-substitute value of undefined
-
-install librarys :
-
-yarn add @testing-library/react @testing-library/jest-dom @testing-library/user-event -D
-
-now we can import react components inside tests
-
-in package.json, scripts, test will be: "jest --watchAll"
+when we are doing multiple test in the same component we use describe, in the begining of each test we have "it" or "test"
